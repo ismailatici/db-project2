@@ -67,6 +67,20 @@ select round(avg(SALARY),2) from EMPLOYEES;
 
 select sum(SALARY)from EMPLOYEES;
 
+---get me unique job id
+select distinct JOB_ID from EMPLOYEES;
+
+---get me job ids where their avg salary is more than 5k
+select JOB_ID,avg(SALARY),count(*),sum(SALARY) from EMPLOYEES
+group by JOB_ID
+having avg(SALARY)>5000;
+
+----get me job ids where their avg salaray is more than 5k
+select JOB_ID,avg(SALARY),count(*),sum(salary)
+from EMPLOYEES
+where SALARY>5000
+group by JOB_ID;
+
 
 
 
