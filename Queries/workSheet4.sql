@@ -74,7 +74,20 @@ select substr(FIRST_NAME,0,1)||'.'||substr(LAST_NAME,0,1) as "initials",
 create view Emaillist as select substr(FIRST_NAME,0,1)||'.'||substr(LAST_NAME,0,1) as "initials",FIRST_NAME||''||LAST_NAME
 as "full_name",lower(EMAIL||'@gmail.com') as"full_email" from EMPLOYEES;
 
-drop view
+ select "FULL_NAME"
+from EMAIL_LIST;
+---- to remove view
+drop view EMAIL_LIST;
+
+
+
+-----find the highest 14th salary
+select min(SALARY)    from (select * from EMPLOYEES order by SALARY desc )where ROWNUM<15;
+
+
+-----find employeee info who  is making 14th highest salary
+select *from EMPLOYEES
+where  SALARY=(select min(SALARY) from (select * from EMPLOYEES order by SALARY desc )where ROWNUM<15);
 
 
 
